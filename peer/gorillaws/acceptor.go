@@ -75,7 +75,7 @@ func (self *wsAcceptor) Start() cellnet.Peer {
 	}
 
 	mux.HandleFunc(addrObj.Path, func(w http.ResponseWriter, r *http.Request) {
-
+		self.upgrader.Subprotocols=[]string{r.Header.Get("Sec-Websocket-Protocol")}
 		c, err := self.upgrader.Upgrade(w, r, nil)
 		if err != nil {
 			log.Debugln(err)
