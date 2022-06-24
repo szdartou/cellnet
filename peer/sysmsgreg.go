@@ -1,10 +1,10 @@
 package peer
 
 import (
-	"github.com/davyxu/cellnet"
-	"github.com/davyxu/cellnet/codec"
-	_ "github.com/davyxu/cellnet/codec/binary"
-	"github.com/davyxu/cellnet/util"
+	"github.com/szdartou/cellnet"
+	"github.com/szdartou/cellnet/codec"
+	_ "github.com/szdartou/cellnet/codec/binary"
+	"github.com/szdartou/cellnet/util"
 	"reflect"
 )
 

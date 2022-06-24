@@ -1,4 +1,4 @@
-module github.com/davyxu/cellnet
+module github.com/szdartou/cellnet
 
 go 1.12
 

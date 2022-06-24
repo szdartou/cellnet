@@ -1,7 +1,7 @@
 package timer
 
 import (
-	"github.com/davyxu/cellnet"
+	"github.com/szdartou/cellnet"
 	"time"
 )
 

@@ -1,8 +1,8 @@
 package http
 
 import (
-	"github.com/davyxu/cellnet"
-	"github.com/davyxu/cellnet/proc"
+	"github.com/szdartou/cellnet"
+	"github.com/szdartou/cellnet/proc"
 )
 
 func init() {

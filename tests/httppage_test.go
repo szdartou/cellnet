@@ -2,10 +2,10 @@ package tests
 
 import (
 	"fmt"
-	"github.com/davyxu/cellnet"
-	"github.com/davyxu/cellnet/peer"
-	httppeer "github.com/davyxu/cellnet/peer/http"
-	"github.com/davyxu/cellnet/proc"
+	"github.com/szdartou/cellnet"
+	"github.com/szdartou/cellnet/peer"
+	httppeer "github.com/szdartou/cellnet/peer/http"
+	"github.com/szdartou/cellnet/proc"
 	"io/ioutil"
 	"net/http"
 	"testing"

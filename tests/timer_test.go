@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/davyxu/cellnet"
-	"github.com/davyxu/cellnet/timer"
+	"github.com/szdartou/cellnet"
+	"github.com/szdartou/cellnet/timer"
 )
 
 func TestAfterTimer(t *testing.T) {

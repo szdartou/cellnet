@@ -3,8 +3,8 @@ package util
 import (
 	"encoding/binary"
 	"errors"
-	"github.com/davyxu/cellnet"
-	"github.com/davyxu/cellnet/codec"
+	"github.com/szdartou/cellnet"
+	"github.com/szdartou/cellnet/codec"
 	"io"
 )
 

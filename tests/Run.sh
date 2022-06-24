@@ -11,10 +11,10 @@ trap 'rm -rf examplebin' EXIT
 mkdir -p examplebin
 
 # 保证工程能编译
-go build -p 4 -v -o ./examplebin/echo github.com/davyxu/cellnet/examples/echo
-go build -p 4 -v -o ./examplebin/echo github.com/davyxu/cellnet/examples/chat/client
-go build -p 4 -v -o ./examplebin/echo github.com/davyxu/cellnet/examples/chat/server
-go build -p 4 -v -o ./examplebin/echo github.com/davyxu/cellnet/examples/fileserver
-go build -p 4 -v -o ./examplebin/echo github.com/davyxu/cellnet/examples/websocket
+go build -p 4 -v -o ./examplebin/echo github.com/szdartou/cellnet/examples/echo
+go build -p 4 -v -o ./examplebin/echo github.com/szdartou/cellnet/examples/chat/client
+go build -p 4 -v -o ./examplebin/echo github.com/szdartou/cellnet/examples/chat/server
+go build -p 4 -v -o ./examplebin/echo github.com/szdartou/cellnet/examples/fileserver
+go build -p 4 -v -o ./examplebin/echo github.com/szdartou/cellnet/examples/websocket
 
 

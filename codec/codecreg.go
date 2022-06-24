@@ -2,7 +2,7 @@ package codec
 
 import (
 	"fmt"
-	"github.com/davyxu/cellnet"
+	"github.com/szdartou/cellnet"
 )
 
 var registedCodecs []cellnet.Codec
@@ -33,15 +33,15 @@ func GetCodec(name string) cellnet.Codec {
 func getPackageByCodecName(name string) string {
 	switch name {
 	case "binary":
-		return "github.com/davyxu/cellnet/codec/binary"
+		return "github.com/szdartou/cellnet/codec/binary"
 	case "gogopb":
-		return "github.com/davyxu/cellnet/codec/gogopb"
+		return "github.com/szdartou/cellnet/codec/gogopb"
 	case "httpjson":
-		return "github.com/davyxu/cellnet/codec/httpjson"
+		return "github.com/szdartou/cellnet/codec/httpjson"
 	case "json":
-		return "github.com/davyxu/cellnet/codec/json"
+		return "github.com/szdartou/cellnet/codec/json"
 	case "protoplus":
-		return "github.com/davyxu/cellnet/codec/protoplus"
+		return "github.com/szdartou/cellnet/codec/protoplus"
 	default:
 		return "package/to/your/codec"
 	}

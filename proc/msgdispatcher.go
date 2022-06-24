@@ -1,7 +1,7 @@
 package proc
 
 import (
-	"github.com/davyxu/cellnet"
+	"github.com/szdartou/cellnet"
 	"reflect"
 	"sync"
 )

@@ -3,9 +3,9 @@ package db
 import (
 	"database/sql"
 	"fmt"
-	"github.com/davyxu/cellnet"
-	"github.com/davyxu/cellnet/peer"
-	"github.com/davyxu/cellnet/peer/mysql"
+	"github.com/szdartou/cellnet"
+	"github.com/szdartou/cellnet/peer"
+	"github.com/szdartou/cellnet/peer/mysql"
 	"testing"
 )
 

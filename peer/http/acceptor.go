@@ -2,9 +2,9 @@ package http
 
 import (
 	"errors"
-	"github.com/davyxu/cellnet"
-	"github.com/davyxu/cellnet/peer"
-	"github.com/davyxu/cellnet/util"
+	"github.com/szdartou/cellnet"
+	"github.com/szdartou/cellnet/peer"
+	"github.com/szdartou/cellnet/util"
 	"html/template"
 	"net"
 	"net/http"
