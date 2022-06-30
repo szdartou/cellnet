@@ -122,6 +122,7 @@ func (self *MessageMeta) GetContextAsInt(name string, defaultValue int) int {
 }
 
 var (
+	OnlyOriginalData = false
 	// 消息元信息与消息名称，消息ID和消息类型的关联关系
 	metaByFullName = map[string]*MessageMeta{}
 	metaByID       = map[int]*MessageMeta{}

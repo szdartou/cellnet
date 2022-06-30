@@ -32,6 +32,10 @@ func (WSMessageTransmitter) OnRecvMessage(ses cellnet.Session) (msg interface{},
 		return
 	}
 
+	if cellnet.OnlyOriginalData{
+		return raw,nil
+	}
+
 	if len(raw) < MsgIDSize {
 		return nil, util.ErrMinPacket
 	}
@@ -60,6 +64,31 @@ func (WSMessageTransmitter) OnSendMessage(ses cellnet.Session, msg interface{}) 
 		msgData []byte
 		msgID   int
 	)
+
+	if cellnet.OnlyOriginalData{
+		switch m := msg.(type) {
+		case []byte: // 发裸包
+			conn.WriteMessage(websocket.BinaryMessage, m)
+		default:
+			var err error
+			var meta *cellnet.MessageMeta
+
+			// 将用户数据转换为字节数组和消息ID
+			msgData, meta, err = codec.EncodeMessage(msg, nil)
+
+			if err != nil {
+				return err
+			}
+
+			msgID = meta.ID
+			pkt := make([]byte, MsgIDSize+len(msgData))
+			binary.LittleEndian.PutUint16(pkt, uint16(msgID))
+			copy(pkt[MsgIDSize:], msgData)
+
+			conn.WriteMessage(websocket.BinaryMessage, pkt)
+		}
+		return nil
+	}
 
 	switch m := msg.(type) {
 	case *cellnet.RawPacket: // 发裸包
