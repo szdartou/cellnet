@@ -4,6 +4,7 @@ import (
 	"github.com/szdartou/cellnet"
 	"reflect"
 	"sync"
+	"log"
 )
 
 // 同步接收消息器, 可选件，可作为流程测试辅助工具
