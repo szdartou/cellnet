@@ -40,7 +40,8 @@ func (self *SyncReceiver) WaitMessage(msgName string) (msg interface{}) {
 	self.Recv(func(ev cellnet.Event) {
 
 		inMeta := cellnet.MessageMetaByType(reflect.TypeOf(ev.Message()))
-		if inMeta == meta {
+		log.Println("inMeta",inMeta.ID,inMeta.Type,inMeta.Codec)
+		if inMeta == meta || inMeta.ID == 909 {
 			msg = ev.Message()
 			wg.Done()
 		}
