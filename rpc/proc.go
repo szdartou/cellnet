@@ -23,10 +23,16 @@ func ResolveInboundEvent(inputEvent cellnet.Event) (ouputEvent cellnet.Event, ha
 		return inputEvent, false, nil
 	}
 
-	userMsg, _, err := codec.DecodeMessage(int(rpcMsg.GetMsgID()), rpcMsg.GetMsgData())
+	var userMsg interface{}
 
-	if err != nil {
-		return inputEvent, false, err
+	if rpcMsg.GetMsgID() > 0 {
+		userMsg, _, err = codec.DecodeMessage(int(rpcMsg.GetMsgID()), rpcMsg.GetMsgData())
+
+		if err != nil {
+			return inputEvent, false, err
+		}
+	} else {
+		userMsg = rpcMsg.GetMsgData()
 	}
 
 	if msglog.IsMsgLogValid(int(rpcMsg.GetMsgID())) {
@@ -67,8 +73,17 @@ func ResolveOutboundEvent(inputEvent cellnet.Event) (handled bool, err error) {
 		return false, nil
 	}
 
-	userMsg, _, err := codec.DecodeMessage(int(rpcMsg.GetMsgID()), rpcMsg.GetMsgData())
+	var userMsg interface{}
 
+	if rpcMsg.GetMsgID() > 0 {
+		userMsg, _, err = codec.DecodeMessage(int(rpcMsg.GetMsgID()), rpcMsg.GetMsgData())
+
+		if err != nil {
+			return false, err
+		}
+	} else {
+		userMsg = rpcMsg.GetMsgData()
+	}
 	if err != nil {
 		return false, err
 	}
