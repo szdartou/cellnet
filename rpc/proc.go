@@ -50,7 +50,7 @@ func ResolveInboundEvent(inputEvent cellnet.Event) (ouputEvent cellnet.Event, ha
 		}, true, nil
 
 	case *RemoteCallACK: // 客户端收到服务器的回应
-		request := getRequest(rpcMsg.GetCallID())
+		request := GetRequest(rpcMsg.GetCallID())
 		if request != nil {
 			request.RecvFeedback(userMsg)
 		}

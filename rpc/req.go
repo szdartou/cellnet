@@ -46,7 +46,7 @@ func (self *request) Send(ses cellnet.Session, msg interface{}) {
 	//codec.FreeCodecResource(meta.Codec, data, ctx)
 }
 
-func createRequest(onRecv func(interface{})) *request {
+func CreateRequest(onRecv func(interface{})) *request {
 
 	self := &request{
 		onRecv: onRecv,
@@ -59,7 +59,7 @@ func createRequest(onRecv func(interface{})) *request {
 	return self
 }
 
-func getRequest(callid int64) *request {
+func GetRequest(callid int64) *request {
 
 	if v, ok := requestByCallID.Load(callid); ok {
 

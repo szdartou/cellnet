@@ -15,7 +15,7 @@ func CallSync(ud interface{}, reqMsg interface{}, timeout time.Duration) (interf
 
 	ret := make(chan interface{})
 	// 发送RPC请求
-	req := createRequest(func(feedbackMsg interface{}) {
+	req := CreateRequest(func(feedbackMsg interface{}) {
 		ret <- feedbackMsg
 	})
 
@@ -28,7 +28,7 @@ func CallSync(ud interface{}, reqMsg interface{}, timeout time.Duration) (interf
 	case <-time.After(timeout):
 
 		// 清理请求
-		getRequest(req.id)
+		GetRequest(req.id)
 
 		return nil, ErrTimeout
 	}

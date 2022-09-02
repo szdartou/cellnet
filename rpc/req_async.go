@@ -21,7 +21,7 @@ func Call(sesOrPeer interface{}, reqMsg interface{}, timeout time.Duration, user
 	}
 
 	// 发送RPC请求
-	req := createRequest(func(raw interface{}) {
+	req := CreateRequest(func(raw interface{}) {
 		cellnet.SessionQueuedCall(ses, func() {
 			userCallback(raw)
 		})
@@ -33,7 +33,7 @@ func Call(sesOrPeer interface{}, reqMsg interface{}, timeout time.Duration, user
 	time.AfterFunc(timeout, func() {
 
 		// 取出请求，如果存在，调用超时
-		if getRequest(req.id) != nil {
+		if GetRequest(req.id) != nil {
 			cellnet.SessionQueuedCall(ses, func() {
 				userCallback(ErrTimeout)
 			})
